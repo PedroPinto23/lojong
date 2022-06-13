@@ -1,17 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:testeflutter/data/api_settings.dart';
 
 class InformacoesApi {
-  static Future<dynamic> getInformacoes() async {
-    final client = http.Client();
-    final res = await client.get(endpoint, headers: headers);
+  static Future<String> getInformacoes() async {
+    final dio = Dio();
+    final res = await dio.get(endpoint, options: Options(headers: headers));
     if (res.statusCode == 200) {
-      debugPrint(res.body);
+      String data = json.encode(res.data);
+      return json.decode(data);
     } else {
-      debugPrint("erro infoemacoes");
+      return '';
     }
   }
 
-  static Uri get endpoint => apiUrl("language-lines?key=testimonials-info");
+  static String get endpoint => apiUrl("language-lines?key=testimonials-info");
 }

@@ -6,8 +6,8 @@ import 'dart:io';
 
   já em https://devlojong.com/api/testimonials, está retornando normalmente */
 
-Uri apiUrl(String endpoint, {bool dev = false}) =>
-    Uri.parse("https://${dev ? 'dev' : 'app'}lojong.com/api/$endpoint");
+String apiUrl(String endpoint, {bool dev = false}) =>
+    "https://${dev ? 'dev' : 'app'}lojong.com/api/$endpoint";
 
 Map<String, String> get headers => {
       HttpHeaders.contentTypeHeader: "application/json",
