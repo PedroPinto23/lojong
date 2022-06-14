@@ -1,7 +1,7 @@
 
 ## Teste Lojong
 
-Segue as capturas de tela do app teste:
+Segue as capturas de tela do app teste desenvolvido em 5 dias:
 
 
 <p float="left">
