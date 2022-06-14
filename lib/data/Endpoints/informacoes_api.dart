@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:testeflutter/data/StoredData/stored_data.dart';
 import 'package:testeflutter/data/api_settings.dart';
 
 class InformacoesApi {
@@ -8,8 +10,11 @@ class InformacoesApi {
     final dio = Dio();
     final res = await dio.get(endpoint, options: Options(headers: headers));
     if (res.statusCode == 200) {
+      Fluttertoast.showToast(msg: "Api ok");
       String data = json.encode(res.data);
-      return json.decode(data);
+      final informacoes = json.decode(data);
+      StoredData.saveInformacoes(informacoes);
+      return informacoes;
     } else {
       return '';
     }

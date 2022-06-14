@@ -50,6 +50,6 @@ class DepoimentosData {
         "videoUrl": videoUrl,
         "order": order,
         "status": status,
-        "languageId": languageId,
+        "language_id": languageId,
       };
 }

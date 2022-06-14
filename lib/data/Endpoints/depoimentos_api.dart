@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:testeflutter/data/Objects/depoimentos_data.dart';
+import 'package:testeflutter/data/StoredData/stored_data.dart';
 import 'package:testeflutter/data/api_settings.dart';
 
 class DepoimentosApi {
@@ -12,9 +13,12 @@ class DepoimentosApi {
         ));
 
     if (res.statusCode == 200) {
-      debugPrint("Api ok");
+      Fluttertoast.showToast(msg: "Api ok");
       final data = res.data;
-      return List.from(data.map((e) => DepoimentosData.fromJson(e)).toList());
+      final depoimentos = List<DepoimentosData>.from(
+          data.map((e) => DepoimentosData.fromJson(e)).toList());
+      StoredData.saveDepoimentos(depoimentos);
+      return depoimentos;
     } else {
       return List<DepoimentosData>.empty();
     }

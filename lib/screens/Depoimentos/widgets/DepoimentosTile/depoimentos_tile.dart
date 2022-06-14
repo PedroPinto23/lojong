@@ -25,16 +25,17 @@ class DepoimentosTile extends StatelessWidget {
         color: Colors.white,
       ),
       child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
-            children: [
-              const CustomVideoPlayer(),
-              Description(name: firstName),
-              const Divider(thickness: 1),
-              Comment(data: data),
-              const Divider(thickness: 1),
-            ],
-          )),
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: [
+            CustomVideoPlayer(data: data),
+            Description(name: firstName),
+            const Divider(thickness: 1),
+            Comment(data: data),
+            const Divider(thickness: 1),
+          ],
+        ),
+      ),
     );
   }
 }

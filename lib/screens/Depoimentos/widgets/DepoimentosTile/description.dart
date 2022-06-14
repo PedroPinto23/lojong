@@ -11,7 +11,7 @@ class Description extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 9),
       child: Text(
         "Assista ao depoimento de $name.",
-        style: Styles.infoDescription,
+        style: Styles.videoDescription,
       ),
     );
   }
